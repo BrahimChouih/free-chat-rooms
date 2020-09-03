@@ -1,16 +1,11 @@
-# free_chat_rooms
+#Free Chat Rooms 
+Free Chat Rooms is a mobile application ,chat by texting
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+by Brahim Chouih 
+Expert Mobile app development and have made mobile apps for IOS and Android platform. Use Cross Platform Application like flutter .
+If you have any Mobile Application Idea in your mind.
+Feel free to contact with me. I'll convert your idea into reality.
+email : brahim26chouih@gamil.com
+fb : cristal.brahim
+instagram : brahim.chouih
