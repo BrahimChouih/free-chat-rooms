@@ -9,6 +9,10 @@ import 'package:free_chat_rooms/utilits/size.dart';
 class MyMenu extends StatelessWidget {
   MyMenu({this.showMPH});
   Function showMPH;
+  final userInfoStyle = TextStyle(
+    color: Colors.black,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Semantics(
@@ -23,7 +27,7 @@ class MyMenu extends StatelessWidget {
               bottomRight: Radius.circular(40),
               topRight: Radius.circular(40),
             ),
-            color: Colors.green.withOpacity(0.4),
+            color: Colors.white.withOpacity(0.8),
           ),
           child: Column(
             children: <Widget>[
@@ -33,8 +37,10 @@ class MyMenu extends StatelessWidget {
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: Auth.userInfo.picture,
                   ),
-                  accountEmail: Text(Auth.loginUser.email),
-                  accountName: Text(Auth.userInfo.userName),
+                  accountEmail:
+                      Text(Auth.loginUser.email, style: userInfoStyle),
+                  accountName:
+                      Text(Auth.userInfo.userName, style: userInfoStyle),
                 ),
               ),
               Expanded(
@@ -105,16 +111,17 @@ class DrawerItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: width * 0.04),
         height: height * 0.06,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: shadowColor != null ? shadowColor : colorGradient[0],
-              blurRadius: 10,
-              offset: Offset(0, 5),
-            ),
-          ],
-        ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: shadowColor != null ? shadowColor : colorGradient[0],
+                blurRadius: 10,
+                offset: Offset(0, 5),
+                spreadRadius: -7,
+              ),
+            ],
+            border: Border.all(color: Colors.grey.withOpacity(0.5))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[

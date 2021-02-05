@@ -57,8 +57,7 @@ class _EditProfileState extends State<EditProfile> {
       inAsyncCall: showMPH,
       child: Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           title: Text(Auth.loginUser.email),
           centerTitle: true,
           actions: <Widget>[

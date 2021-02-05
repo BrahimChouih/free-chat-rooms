@@ -14,6 +14,10 @@ const colorGradient = [
   const Color(0xff7FFF00),
 ];
 
+LinearGradient linearGradient = LinearGradient(
+  colors: colorGradient,
+);
+
 const kMessageTextFieldDecoration = InputDecoration(
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   hintText: 'Type your message here...',

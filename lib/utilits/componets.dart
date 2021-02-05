@@ -18,9 +18,7 @@ class Options extends StatelessWidget {
         vertical: height * 0.015,
       ),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: colorGradient,
-        ),
+        gradient: linearGradient,
         borderRadius: BorderRadius.circular(30),
       ),
       child: InkWell(

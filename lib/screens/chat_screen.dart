@@ -88,19 +88,27 @@ class MessagesStream extends StatelessWidget {
           );
         }
         final currentUser = me.email;
-        final messages = snapshot.data.documents.reversed;
-
+        final messages = snapshot.data.documents;
+        for (var message in messages) {
+          print(message.data);
+        }
         List<MessageFromDB> messagesWidgets = [];
+        String before;
+        bool beforeIsThis;
         for (var message in messages) {
           if ((message.data['from'] == me.email &&
                   message.data['to'] == you.email) ||
               (message.data['to'] == me.email &&
                   message.data['from'] == you.email)) {
+            beforeIsThis = message.data['from'] == before;
+            print(" from : ${message.data['from']}");
+            before = message.data['from'];
             messagesWidgets.add(
               MessageFromDB(
                 text: message.data['text'],
                 sender: message.data['from'],
                 isMe: currentUser == message.data['from'],
+                beforeIsThis: beforeIsThis,
               ),
             );
           }
@@ -113,7 +121,7 @@ class MessagesStream extends StatelessWidget {
         return Expanded(
           child: ListView(
             reverse: true,
-            children: messagesWidgets,
+            children: messagesWidgets.reversed.toList(),
           ),
         );
       },
@@ -125,27 +133,39 @@ class MessageFromDB extends StatelessWidget {
   final String text;
   final String sender;
   final bool isMe;
+  final bool beforeIsThis;
   String userEmail;
 
-  MessageFromDB({this.text, this.sender, this.isMe});
+  MessageFromDB({
+    this.text,
+    this.sender,
+    this.isMe,
+    this.beforeIsThis = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     userEmail = sender.substring(0, sender.indexOf('@')).toUpperCase();
     return Padding(
       padding: EdgeInsets.only(
-          top: 8, bottom: 8, left: isMe ? 30 : 8, right: isMe ? 8 : 30),
+        top: 8,
+        bottom: 8,
+        left: isMe ? 30 : 8,
+        right: isMe ? 8 : 30,
+      ),
       child: Column(
         crossAxisAlignment:
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            userEmail,
-            style: TextStyle(
-              color: Colors.black45,
-              fontSize: 13,
-            ),
-          ),
+          beforeIsThis
+              ? Container()
+              : Text(
+                  userEmail,
+                  style: TextStyle(
+                    color: Colors.black45,
+                    fontSize: 13,
+                  ),
+                ),
           Container(
             decoration: BoxDecoration(
               color: isMe ? Color(0xff49FF09) : Colors.white,
@@ -155,12 +175,17 @@ class MessageFromDB extends StatelessWidget {
                 topLeft: Radius.circular(isMe ? 30 : 0),
                 topRight: Radius.circular(isMe ? 0 : 30),
               ),
+              border: Border.all(
+                color: isMe
+                    ? Colors.green.withOpacity(0.5)
+                    : Colors.grey.withOpacity(0.5),
+              ),
               boxShadow: [
                 BoxShadow(
-                  color: isMe ? colorGradient[0] : colorGradient[1],
-                  blurRadius: 8,
+                  color: isMe ? Color(0xff49FF09) : Colors.grey,
+                  blurRadius: 10,
                   offset: Offset(0, 5),
-                  spreadRadius: 1,
+                  spreadRadius: isMe ? -2 : -8,
                 )
               ],
             ),

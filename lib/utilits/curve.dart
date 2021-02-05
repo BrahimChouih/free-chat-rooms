@@ -11,9 +11,7 @@ class MyCurve extends StatelessWidget {
           width: double.infinity,
           height: MediaQuery.of(context).size.height * 0.7,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: colorGradient,
-            ),
+            gradient: linearGradient,
           ),
         ),
       ),

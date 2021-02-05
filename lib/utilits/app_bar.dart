@@ -30,6 +30,7 @@ class AppBarCustomize extends StatelessWidget {
             width: width * 0.6,
             child: TextField(
               cursorColor: Color(0xff49FF09),
+              textAlign: TextAlign.center,
               decoration: InputDecoration(
                 prefix: Icon(Icons.search),
                 hintText: 'Search here',
