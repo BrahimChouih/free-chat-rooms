@@ -9,4 +9,3 @@ Feel free to contact with me. I'll convert your idea into reality.
  - email : brahim26chouih@gamil.com
  - fb : [brahim.chouih](https://www.facebook.com/brahim.chouih/)
  - instagram : [brahim.chouih](https://www.instagram.com/brahim.chouih/)
- - fiverr : [brahimchouih](https://www.fiverr.com/brahimchouih)
